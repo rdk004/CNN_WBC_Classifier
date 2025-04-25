@@ -123,6 +123,8 @@ save_images(test_images, test_labels, "Testing")
 
 #### Script 2: Rename Validation Images
 
+Note: This was done to combine the validation and training images into one "Training" folder and perform 5-fold CV with weighted random sampling. The indices for renaming start one index after each last respective training image of the WBC cell type, so that there is no duplicate naming in the combined "Training" folder.
+
 ```python
 import os
 
