@@ -92,6 +92,10 @@ Note:
 - **Preprocessing**:
   - RGB images are normalised channel-wise
   - Pixel values are standardized using mean=0.5 and std=0.5 across all 3 channels
+  - Data Augmentation techniques, including Random Horizontal Flip, Random Vertical Flip, and Random Rotation, are applied to increase the variability of training 
+    data. This helps the model become invariant to different orientations of the cells, as cells may appear differently due to varying imaging conditions or 
+    sample preparation. These augmentations help the model generalise better, reducing overfitting by teaching the network to focus on the intrinsic features of 
+    the cells, rather than their specific positioning or orientation.
 
 
 ### Source
