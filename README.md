@@ -184,7 +184,7 @@ project_root/
 │   ├── Training/                    # 8 subfolders (1 per class)
 │   └── Testing/                     # 8 subfolders (1 per class)
 │
-├── dataset.py                      # Data loading and augmentation logic
+├── dataset.py                      # Data loading and augmentation logic along with weighted random sampler
 ├── model.py                        # WBC_Classifier_CNN model definition
 ├── train.py                        # Training loop (5-fold CV, AUC-based model saving)
 ├── predict.py                      # Single/batch inference and test set evaluation
