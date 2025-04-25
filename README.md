@@ -4,7 +4,7 @@ This project implements a Convolutional Neural Network (CNN) to classify white b
 
 ## Data Summary and Split
 
-The full dataset is organized into two parts:
+The full dataset is organised into two parts:
 
 - `data/`: Contains 10 representative images per WBC class for visual reference.
 - `actual_training_testing_data/`: Contains the full processed dataset divided into `Training/` and `Testing/` folders, each containing subfolders for the 8 WBC classes.
@@ -16,7 +16,7 @@ Training Pipeline Highlights:
 - **Stratified 5-Fold Cross-Validation** for robust generalization.
 - **Weighted Random Sampler** to address class imbalance in each fold.
 - **Data Augmentation** (horizontal/vertical flips, rotations).
-- **Best Fold Selection** based on highest validation ROC AUC.
+- **Best Fold Selection** is based on the highest validation ROC AUC.
 
 ---
 
@@ -25,18 +25,32 @@ Training Pipeline Highlights:
 A custom Convolutional Neural Network (CNN) was designed for this task due to its suitability in processing spatial hierarchies in images. The model accepts 3-channel RGB images of dimension 224x224 and passes them through:
 
 - 4 Convolutional Blocks: each consisting of `Conv2D -> BatchNorm -> ReLU -> MaxPooling`
-- 2 Fully Connected (Dense) Layers: with dropout and batch normalization
+- 2 Fully Connected (Dense) Layers: with dropout and batch normalisation
 - Final Output Layer: with 8 neurons (one per WBC class) and softmax activation
 
-This architecture was chosen for its balance between depth and computational efficiency. Dropout and batch normalization help reduce overfitting, while convolutional layers extract meaningful morphological features across cell types. CNNs are especially effective in distinguishing local image features — a crucial requirement for WBC morphology classification.
+The CNN architecture is highly effective for WBC morphology classification because it can learn and extract key morphological features that define each cell type. The distinct characteristics of each white blood cell (WBC) type are captured as follows:
+- Basophils: Irregularly shaped cells with large blue/purple granules.
+- Eosinophils: Bi-lobed nucleus and distinctive cytoplasmic granules.
+- Erythroblasts: Large, round nucleus with dense cytoplasm, precursor to red blood cells.
+- Immature Granulocytes (IG): Grouped from promyelocytes, myelocytes, and metamyelocytes, characterised by immature, irregular nuclear shapes.
+- Lymphocytes: Large, round nucleus with sparse cytoplasm.
+- Monocytes: Kidney-shaped nucleus and abundant cytoplasm.
+- Neutrophils: Multi-lobed nucleus with a granular cytoplasm.
+- Thrombocytes: Small, irregular cell fragments without a nucleus.
 
+Why CNNs?
+- Local Feature Extraction: CNNs automatically detect cell boundaries, nuclear shapes, and granular features.
+- Translation Invariance: Capable of identifying WBCs regardless of their position in the image.
+- Hierarchical Learning: Extract low-level features (edges, contours) in early layers and more complex features (nuclear structure, cytoplasm) in deeper layers.
+
+Thus, CNNs are ideal for identifying subtle morphological differences across WBC types, making them highly effective for automating blood cell classification.
 ---
 
 ## Project Overview
 
 ### Problem Description
 
-Manual identification of blood cells from microscopic images is time-consuming and prone to error. Automating this task using deep learning can assist medical professionals in diagnosing hematological disorders more efficiently.
+Manual identification of blood cells from microscopic images is time-consuming and prone to error. Automating this task using deep learning can assist medical professionals in diagnosing haematological disorders more efficiently.
 
 This project develops a CNN-based classifier to identify eight types of white blood cells:
 
@@ -71,19 +85,19 @@ Note:
 
 ### Dataset Description
 
-- **Original Split**: 70% training, 10% validation and 20% testing; However for stratified 5-fold CV, the training and validation folders have been merged
+- **Original Split**: 70% training, 10% validation and 20% testing; However, for stratified 5-fold CV, the training and validation folders have been merged
 - **Training Set Size**: 13,671 images (merged original train and val)
 - **Testing Set Size**: 3,421 images
 - **Image Size**: Resized to 224x224 pixels
 - **Preprocessing**:
-  - RGB images are normalized channel-wise
+  - RGB images are normalised channel-wise
   - Pixel values are standardized using mean=0.5 and std=0.5 across all 3 channels
 
 
 ### Source
 
 - Dataset: BloodMNIST - [https://zenodo.org/records/10519652]
-- Paper: [https://www.sciencedirect.com/science/article/pii/S2352340920303681](
+- Paper: [https://www.sciencedirect.com/science/article/pii/S2352340920303681]
 
 ### Image Extraction from `.npz`
 
@@ -243,9 +257,9 @@ the_trainer(data_dir="actual_training_testing_data")
 ```
 
 - Trains with 5-fold stratified CV
-- Uses weighted random sampler
+- Uses a weighted random sampler
 - Tracks and plots fold-wise metrics
-- Saves best model checkpoint for each fold
+- Saves the best model checkpoint for each fold
 
 ---
 
@@ -256,7 +270,7 @@ from interface import the_predictor
 preds, probs = the_predictor(input_tensor)
 ```
 
-- Accepts single image or batch of shape [C,H,W] or [B,C,H,W]
+- Accepts single image or batch of shape [C, H ,W] or [B, C ,H ,W]
 - Returns predicted classes and softmax scores
 
 ---
@@ -268,8 +282,8 @@ from predict import predict_model
 predict_model(data_dir="actual_training_testing_data")
 ```
 
-- Loads best model fold
-- Evaluates on full test set
+- Loads the best model fold
+- Evaluates on the full test set
 - Saves `.txt` and `.npy` metrics and confusion matrix image
 
 ---
