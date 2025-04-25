@@ -26,7 +26,7 @@ from train import wbc_trainer as the_trainer
 # Inference on Single Image or Batch
 # ----------------------------
 from predict import wbc_predictor as the_predictor
-from predict import predict_model  # optional
+from predict import predict_model # - Optional full evaluation utility;  Evaluates the best saved model (from the respective fold) on the complete test dataset
 
 # ----------------------------
 # Config Parameters
