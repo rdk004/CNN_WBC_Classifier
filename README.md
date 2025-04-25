@@ -170,6 +170,8 @@ for class_folder in os.listdir(VAL_PATH):
 
 ## Folder Structure
 
+Note: The 'outputs\' folder will be created as part of the code implementation. This just shows how the final structure would be.
+
 ```
 project_root/
 ├── data/                            # 10 sample images per class
