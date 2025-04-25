@@ -26,6 +26,7 @@ from train import wbc_trainer as the_trainer
 # Inference on Single Image or Batch
 # ----------------------------
 from predict import wbc_predictor as the_predictor
+from predict import predict_model  # optional
 
 # ----------------------------
 # Config Parameters
