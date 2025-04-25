@@ -71,7 +71,7 @@ Note:
 
 ### Dataset Description
 
-- **Original Split**: 80% training, 20% testing
+- **Original Split**: 70% training, 10% validation and 20% testing; However for stratified 5-fold CV, the training and validation folders have been merged
 - **Training Set Size**: 13,671 images (merged original train and val)
 - **Testing Set Size**: 3,421 images
 - **Image Size**: Resized to 224x224 pixels
