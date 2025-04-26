@@ -213,12 +213,12 @@ project_root/
 ├── config.py                       # Device, batch size, epochs, image dims
 ├── interface.py                    # Required interface imports for grading
 │
-├── checkpoints/                    # Best model per fold, also has a gitkeep file (only as a placeholder for tracking by Git during pulling/cloning/pushing)
+├── checkpoints/                    # Best model per fold, also has a gitkeep file (only as a placeholder for tracking by Git during pulling/cloning/pushing empty directories)
 │   ├── best_model_fold1.pt
 │   ├── best_model_fold2.pt
 │   └── ...
 │
-├── outputs/                        # Store text files and plots for evaluation, also has a gitkeep file (only as a placeholder for tracking by Git during pulling/cloning/pushing)
+├── outputs/                        # Store text files and plots for evaluation, also has a gitkeep file (only as a placeholder for tracking by Git during pulling/cloning/pushing empty directories)
 │   ├── training_metrics/
 │   │   ├── foldwise_val_roc_auc_plot.png
 │   │   ├── best_fold_accuracy_loss.png
