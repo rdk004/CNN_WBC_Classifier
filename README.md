@@ -76,7 +76,7 @@ This project develops a CNN-based classifier to identify eight types of white bl
 
 Below is a visual overview of different blood cell types used in classification:
 
-![WBC Classes](cell_types.png)
+![WBC Classes](https://raw.githubusercontent.com/rdk004/project_rishabh_kulkarni/main/cell_types.png)
 
 *Figure: Representative White Blood Cell Types (Basophil, Eosinophil, Erythroblast, etc.)*
 
